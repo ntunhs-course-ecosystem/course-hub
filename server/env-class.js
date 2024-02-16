@@ -9,6 +9,7 @@ dotenv.config();
 export const ServerEnv = function () {
     return {
         host: envVar.get("SERVER_HOST").required().default("0.0.0.0").asString(),
-        port: envVar.get("SERVER_PORT").required().default(3000).asPortNumber()
+        port: envVar.get("SERVER_PORT").required().default(3000).asPortNumber(),
+        sessionSecret: envVar.get("SESSION_SECRET").required().asString()
     };
 };
