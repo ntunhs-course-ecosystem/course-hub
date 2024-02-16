@@ -1,0 +1,5 @@
+**/node_modules
+client/public/_compiled
+
+
+.env

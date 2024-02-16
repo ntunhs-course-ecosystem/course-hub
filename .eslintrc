@@ -1,0 +1,22 @@
+{
+    "parserOptions": {
+        "ecmaVersion": 2022,
+        "sourceType": "module"
+    },
+    "env": {
+        "browser": true,
+        "node": true,
+        "es2022": true
+    },
+    "extends": ["eslint:recommended", "prettier"],
+    "rules": {
+        "semi": ["error", "always"],
+        "comma-dangle": ["error", "never"],
+        "no-unused-vars": "off",
+        "no-console": 0,
+        "no-useless-escape": "off",
+        "no-useless-catch": "off",
+        "no-var": "error",
+        "no-control-regex": "off"
+    }
+}
