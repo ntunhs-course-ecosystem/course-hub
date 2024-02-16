@@ -3,3 +3,4 @@ client/public/_compiled
 
 
 .env
+/.vscode
