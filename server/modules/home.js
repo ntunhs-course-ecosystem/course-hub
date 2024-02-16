@@ -5,9 +5,9 @@
  */
 export default async function (fastify, opts) {
     fastify.get("/", async (request, reply) => {
-        return reply.view("home", {
+        return reply.view("components/layout", {
             page: {
-                file: "home.ejs",
+                file: "../home",
                 data: {}
             }
         });
