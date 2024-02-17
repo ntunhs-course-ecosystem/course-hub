@@ -30,6 +30,7 @@
     "@fastify/static": "^7.0.1",
     "@fastify/under-pressure": "^8.3.0",
     "@fastify/view": "^8.2.0",
+    "alpinejs": "^3.13.5",
     "better-sqlite3": "^9.4.0",
     "close-with-grace": "^1.2.0",
     "dest": "^0.3.1",
@@ -38,7 +39,8 @@
     "env-var": "^7.4.1",
     "fastify": "^4.26.0",
     "fastify-plugin": "^4.5.1",
-    "htmx.org": "^1.9.10"
+    "htmx.org": "^1.9.10",
+    "uid": "^2.0.2"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.7",
