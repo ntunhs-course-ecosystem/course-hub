@@ -1,0 +1,31 @@
+<!-- day, start period, end period -->
+<% const periodStartTimeMapping = ["0810", "0910", "1010", "1110", "1240", "1340", "1440", "1540", "1640", "1740", "1835", "1730", "2025", "2120"] %>
+<% const periodEndTimeMapping = ["0900", "1000", "1100", "1200", "1330", "1430", "1530", "1630", "1730", "1830", "1925", "2020", "2115", "2210"] %>
+
+<% const periodStartTime = periodStartTimeMapping[startPeriod] %>
+<% const periodEndTime = periodEndTimeMapping[endPeriod] %>
+<% const periodLength = parseInt(endPeriod) - parseInt(startPeriod) %>
+<% const liCardClass = `sm:col-start-${day} flex mt-[1px] relative calendar-course-card-${uid}` %>
+<% const rowStart = (parseInt(startPeriod)+1)*6+2 %>
+
+<li
+    class="<%= liCardClass %>"
+    style="grid-row: <%= rowStart %> / span <%= periodLength * 12 %>"
+>
+    <div class="absolute top-1 right-1 z-50">
+        <%- include("./course-card-menu/menu.ejs", { courseCardUid: uid }) %>
+    </div>
+    <a
+        href="#"
+        class="leading-5 text-sm p-2 bg-pink-50 rounded-lg overflow-y-auto sm:flex flex-col absolute inset-1 hover:bg-pink-100 group"
+    >
+        <p class="font-bold order-1 text-pink-700"><%= name %></p>
+        <p class="text-pink-400 group-hover:text-pink-600">
+            <span
+                ><%= periodStartTime %>
+                -
+                <%= periodEndTime %></span
+            >
+        </p>
+    </a>
+</li>

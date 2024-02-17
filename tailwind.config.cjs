@@ -1,5 +1,5 @@
 module.exports = {
-    content: ["./server/views/**/*.ejs"],
+    content: ["./server/views/**/*.ejs", "./client/bundle/*.js"],
     theme: {
         container: {
             center: true,
@@ -9,6 +9,17 @@ module.exports = {
             position: ["bottom", "right"]
         }
     },
+    safelist: [
+        {
+            pattern: /col-start-[^/]+$/,
+            variants: [
+                "sm",
+                "md",
+                "xl",
+                "lg"
+            ]
+        }
+    ],
     plugins: [
         require("@tailwindcss/forms"),
         require("tailwindcss-debug-screens")
