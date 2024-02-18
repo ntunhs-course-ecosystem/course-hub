@@ -17,13 +17,21 @@ export default async function (fastify, opts) {
             page: {
                 file: "weekly-calendar.ejs",
                 data: {
-                    courseCardUid: uid()
+                    courses: [
+                        {
+                            dayNum: 1,
+                            startPeriod: "5",
+                            endPeriod: "7",
+                            courseName: "休閒與生活",
+                            courseCardUid: uid()
+                        }
+                    ]
                 }
             }
         });
     });
 
-    fastify.get("/context-menu", async (request, reply)=> {
+    fastify.get("/context-menu", async (request, reply) => {
         return reply.view("components/layout", {
             page: {
                 file: "course-card-context-menu",
