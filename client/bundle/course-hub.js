@@ -134,6 +134,14 @@ export const NtunhsCourseHubFns = {
     },
     getColorByName: (colorName) => {
         return colors.find(c => c.name === colorName);
+    },
+    openCourseDetailModal: (id) => {
+        let courseDetailModalEl = document.getElementById(id);
+        courseDetailModalEl.dispatchEvent(
+            new CustomEvent("open-modal", {
+                detail: {}
+            })
+        );
     }
 };
 

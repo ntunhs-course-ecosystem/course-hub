@@ -1,0 +1,10 @@
+<div class="h-screen items-center overflow-y-auto">
+    <div class="mx-auto w-full max-w-md rounded-md shadow-sm flex flex-wrap mt-2">
+        <% for( let index = 0; index < courses.length; index++ ) { %>
+            <% let course = courses[index]; %>
+            <div class="w-full">
+                <%- include('components/query-course-card', { ...course }) %>
+            </div>
+        <% } %>
+    </div>
+</div>
