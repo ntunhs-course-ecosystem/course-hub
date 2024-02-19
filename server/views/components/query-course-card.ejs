@@ -6,7 +6,7 @@
     @click="NtunhsCourseHubFns.openCourseDetailModal('course-detail-modal-<%= courseFullID %>')">
         <span class="text-xl mb-2"><%= courseName %></span>
         <div class="mb-2">
-            <span class="rounded text-sm text-black bg-pink-200 px-2 py-0 group-hover:animate-pulse"><%= courseType %></span>
+            <%- include('course-type-badge') %>
         </div>
         <span class="text-sm transition-all duration-200 w-full">
             <%= department %>

@@ -1,0 +1,4 @@
+<% const courseTypes = { "專業必修(系所)": "bg-red-200", "專業選修(系所)": "bg-green-200", "通識必修(通識)": "bg-pink-200", "通識選修(通識)": "bg-gray-200" } %>
+
+<span class="rounded text-sm text-black <%= courseTypes[courseType] ?? "bg-gray-200" %> px-2 py-0 group-hover:animate-pulse"><%= courseType %></span>
+

@@ -52,10 +52,7 @@
                                     <%= courseName %>
                                 </h3>
                                 <div class="mb-2">
-                                    <span
-                                        class="rounded text-sm text-black bg-pink-200 px-1 py-0 group-hover:animate-pulse"
-                                        ><%= courseType %></span
-                                    >
+                                    <%- include('course-type-badge') %>
                                 </div>
                                 <ul class="max-w-md list-none list-inside mb-4">
                                     <li class="text-sm"><%= department %></li>
