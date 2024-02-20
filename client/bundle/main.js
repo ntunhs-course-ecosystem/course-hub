@@ -1,6 +1,8 @@
 import "htmx.org";
 import Alpine from "alpinejs";
 import { NtunhsCourseHubFns } from "../bundle/course-hub.js";
+import { getDropdownData } from "./alpine-data/dropdown.js";
+import { getSearchAdvancedData } from "./alpine-data/search-advanced.js";
 
 window.Alpine = Alpine;
 
@@ -50,6 +52,10 @@ window.addEventListener("alpine:init", () => {
             }
         };
     });
+
+    Alpine.data("getDropdownData", getDropdownData);
+
+    Alpine.data("getSearchAdvancedData", getSearchAdvancedData);
 });
 
 // Restart Alpine when the DOM is altered by HTMX.

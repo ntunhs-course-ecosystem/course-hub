@@ -1,5 +1,5 @@
 module.exports = {
-    content: ["./server/views/**/*.ejs", "./client/bundle/*.js"],
+    content: ["./server/views/**/*.ejs", "./client/bundle/**/*.js"],
     theme: {
         container: {
             center: true,

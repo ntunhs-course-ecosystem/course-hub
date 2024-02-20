@@ -1,0 +1,47 @@
+<div class="flex">
+    <%- include('dropdown', { labelText: "學期", panelItems: [
+        {
+            template: "dropdown-panel-button",
+            data: {
+                buttonText: "112下學期",
+                buttonAttrs: [
+                    "@click=alert(\'112下學期\')"
+                ]
+            }
+        },
+        {
+            template: "dropdown-panel-button",
+            data: {
+                buttonText: "112上學期",
+                buttonAttrs: [
+                    "@click=alert(\'112上學期\')"
+                ]
+            }
+        }
+    ] }) %>
+    <div class="relative w-full">
+        <input
+            type="search"
+            class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-green-500"
+            placeholder="課程名稱 / 老師名稱"
+            required
+        />
+        <button
+            class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+        >
+            <svg
+                class="w-4 h-4"
+                viewBox="0 0 15 15"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M10 6.5C10 8.433 8.433 10 6.5 10C4.567 10 3 8.433 3 6.5C3 4.567 4.567 3 6.5 3C8.433 3 10 4.567 10 6.5ZM9.30884 10.0159C8.53901 10.6318 7.56251 11 6.5 11C4.01472 11 2 8.98528 2 6.5C2 4.01472 4.01472 2 6.5 2C8.98528 2 11 4.01472 11 6.5C11 7.56251 10.6318 8.53901 10.0159 9.30884L12.8536 12.1464C13.0488 12.3417 13.0488 12.6583 12.8536 12.8536C12.6583 13.0488 12.3417 13.0488 12.1464 12.8536L9.30884 10.0159Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                ></path>
+            </svg>
+            <span class="sr-only">Search</span>
+        </button>
+    </div>
+</div>

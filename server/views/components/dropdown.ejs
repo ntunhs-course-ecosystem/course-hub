@@ -1,0 +1,47 @@
+<div
+    x-data="getDropdownData()"
+    x-on:keydown.escape.prevent.stop="close($refs.button)"
+    x-on:focusin.window="! $refs.panel.contains($event.target) && close()"
+    x-id="['dropdown-button']"
+    class="relative"
+>
+    <!-- Button -->
+    <button
+        x-ref="button"
+        x-on:click="toggle()"
+        :aria-expanded="open"
+        :aria-controls="$id('dropdown-button')"
+        type="button"
+        class="flex-shrink-0 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
+    >
+        <span class="text-nowrap"><%= labelText %></span>
+        <svg
+            class="w-5 h-5 text-gray-400"
+            viewBox="0 0 15 15"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+            ></path>
+        </svg>
+    </button>
+
+    <!-- Panel -->
+    <div
+        x-ref="panel"
+        x-show="open"
+        x-transition.origin.top.left
+        x-on:click.outside="close($refs.button)"
+        :id="$id('dropdown-button')"
+        style="display: none"
+        class="absolute left-0 mt-2 w-40 rounded-md bg-white shadow-md"
+    >
+        <% for( let index = 0; index < panelItems.length; index++ ) { %>
+            <% let panelItem = panelItems[index]; %>
+            <%- include(panelItem.template, panelItem.data) %>
+        <% } %>
+    </div>
+</div>

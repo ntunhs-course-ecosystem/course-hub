@@ -1,0 +1,86 @@
+<% const times = [
+    "0810-0900",
+    "0910-1000",
+    "1010-1100",
+    "1110-1200",
+    "1240-1330",
+    "1340-1430",
+    "1440-1530",
+    "1540-1630",
+    "1640-1730",
+    "1740-1830",
+    "1835-1925",
+    "1930-2020",
+    "2025-2115",
+    "2120-2210"
+]; %>
+
+<div class="h-screen flex">
+    <div class="justify-center m-auto w-full max-w-xl">
+        <div class="grid grid-cols-6 gap-2 mb-2" id="search-bar">
+            <div class="col-span-5">
+                <%- include('components/search-bar') %>
+            </div>
+            <div class="grid col-span-1 my-auto">
+                <button
+                    class="flex justify-end items-center text-gray-600 text-sm"
+                    x-data="{ open: false }"
+                    @click="document.querySelector('#search-advanced').classList.toggle('hidden'); open=!open;"
+                >
+                    <span class="text-nowrap">進階搜尋</span>
+
+                    <!-- Heroicon: chevron-down -->
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="w-5 h-5 text-gray-400"
+                        x-show="!open"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        class="w-5 h-5 text-gray-400"
+                        x-show="open"
+                    >
+                        <path
+                            fill-rule="evenodd"
+                            d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div
+            id="search-advanced"
+            x-data="getSearchAdvancedData()"
+            class="hidden"
+        >
+            <div class="border border-gray-200 rounded-lg">
+                <ul>
+                    <%- include('components/search-advanced-accordion-item.ejs', {
+                        template: "search-bar-block/period-buttons.ejs",
+                        accordionTitle: "節次",
+                        data: {
+                            times: times
+                        }
+                    }) %>
+                    <%- include('components/search-advanced-accordion-item.ejs', {
+                        template: "search-bar-block/day-buttons.ejs",
+                        accordionTitle: "星期",
+                        data: {}
+                    }) %>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

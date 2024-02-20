@@ -1,0 +1,11 @@
+<div class="grid grid-cols-3 gap-2 p-4">
+    <% for( let index = 0; index < times.length; index++ ) { %>
+    <button class="rounded-xl border p-2"
+    data-state="inactive"
+    data-value="<%= index+1 %>"
+    @click="addSearchValueFromElement($el, 'days')"
+    >
+        節次 <%= index+1 %> (<%= times[index] %>)
+    </button>
+    <% } %>
+</div>

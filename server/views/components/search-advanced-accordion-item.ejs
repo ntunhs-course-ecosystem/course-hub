@@ -1,0 +1,53 @@
+<li
+    class="relavite border-b border-gray-200"
+    x-id="['accordion']"
+    x-data="getDropdownData()"
+>
+    <button
+        type="button"
+        class="w-full py-2 px-4 text-left"
+        x-ref="button"
+        :aria-expanded="open"
+        :aria-controls="$id('accordion')"
+        @click="toggle();"
+    >
+        <div class="flex items-center justify-between">
+            <span><%= accordionTitle %></span>
+            <svg
+                class="w-5 h-5 text-gray-400"
+                viewBox="0 0 15 15"
+                xmlns="http://www.w3.org/2000/svg"
+                x-show="!open"
+            >
+                <path
+                    d="M4.18179 6.18181C4.35753 6.00608 4.64245 6.00608 4.81819 6.18181L7.49999 8.86362L10.1818 6.18181C10.3575 6.00608 10.6424 6.00608 10.8182 6.18181C10.9939 6.35755 10.9939 6.64247 10.8182 6.81821L7.81819 9.81821C7.73379 9.9026 7.61934 9.95001 7.49999 9.95001C7.38064 9.95001 7.26618 9.9026 7.18179 9.81821L4.18179 6.81821C4.00605 6.64247 4.00605 6.35755 4.18179 6.18181Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                ></path>
+            </svg>
+
+            <svg
+                class="w-5 h-5 text-gray-400"
+                viewBox="0 0 15 15"
+                xmlns="http://www.w3.org/2000/svg"
+                x-show="open"
+            >
+                <path
+                    d="M4.18179 8.81819C4.00605 8.64245 4.00605 8.35753 4.18179 8.18179L7.18179 5.18179C7.26618 5.0974 7.38064 5.04999 7.49999 5.04999C7.61933 5.04999 7.73379 5.0974 7.81819 5.18179L10.8182 8.18179C10.9939 8.35753 10.9939 8.64245 10.8182 8.81819C10.6424 8.99392 10.3575 8.99392 10.1818 8.81819L7.49999 6.13638L4.81819 8.81819C4.64245 8.99392 4.35753 8.99392 4.18179 8.81819Z"
+                    fill="currentColor"
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                ></path>
+            </svg>
+        </div>
+    </button>
+    <div
+        class="overflow-hidden transition-all duration-700 max-h-0"
+        x-ref="accordion"
+        :id="$id('accordion')"
+        :style="open ? 'max-height: ' + $refs.accordion.scrollHeight + 'px;': ''"
+    >
+        <%- include(template, data) %>
+    </div>
+</li>
