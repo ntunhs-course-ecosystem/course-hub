@@ -1,8 +1,8 @@
 <div class="flex">
-    <div x-data="getCourseCardMenuData('<%= uid %>')">
+    <div x-data="getCourseCardMenuData()">
         <button
             class="text-sm py-1 border-0 rounded-md outline-none bg-transparent"
-            :class="NtunhsCourseHubFns.getColorByName(color).bg.hoverColor"
+            :class="color.bg.hoverColor"
             x-on:click="show = !show"
         >
             <svg
@@ -65,7 +65,7 @@
                     </div>
                     <div class="w-full border border-gray-100 my-1"></div>
                     <li class="!text-red-500">Delete</li>
-                    <li x-text="color"></li>
+                    <li x-text="color.name"></li>
                 </ul>
             </div>
         </div>

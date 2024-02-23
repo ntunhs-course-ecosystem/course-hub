@@ -11,16 +11,20 @@
 <li
     class="<%= liCardClass %>"
     style="grid-row: <%= rowStart %> / span <%= periodLength * 12 %>"
+    x-data="getCalendarCrouseCardData('<%= uid %>')"
 >
     <div class="absolute top-1 right-1 z-50">
-        <%- include("./course-card-menu/menu.ejs", { courseCardUid: uid }) %>
+        <%- include("./course-card-menu/menu.ejs", { courseCardUid: uid }) %> 
     </div>
     <a
         href="#"
-        class="leading-5 text-sm p-2 bg-pink-50 rounded-lg overflow-y-auto sm:flex flex-col absolute inset-1 hover:bg-pink-100 group"
+        class="leading-5 text-sm p-2rounded-lg overflow-y-auto sm:flex flex-col absolute inset-1 group"
+        :class="color.bg.color + ' ' +color.bg.hoverColor"
     >
-        <p class="font-bold order-1 text-pink-700"><%= courseName %></p>
-        <p class="text-pink-400 group-hover:text-pink-600">
+        <p class="font-bold order-1" :class="color.courseText.color"><%= courseName %></p>
+        <p 
+            :class="color.timeText.color"
+        >
             <span
                 ><%= periodStartTime %>
                 -

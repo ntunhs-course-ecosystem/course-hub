@@ -121,6 +121,9 @@ export const NtunhsCourseHubFns = {
          */
         setCourseCardColor: (color) => {
             window.localStorage.setItem("ntunhs-course-hub-card-color", color);
+        },
+        getCourseCardColor: () => {
+            return window.localStorage.getItem("ntunhs-course-hub-card-color");
         }
     },
     getCourseCardColor: (courseCardUid) => {
@@ -143,6 +146,40 @@ export const NtunhsCourseHubFns = {
             })
         );
     }
+};
+
+NtunhsCourseHubFns.CalendarCourseCardColorHandler = function(calendarCourseCardUid) {
+    let courseCard = document.querySelector(`.calendar-course-card-${calendarCourseCardUid}`);
+    let courseCardItem = courseCard.querySelector("a");
+
+    return {
+        changeBg(colorName) {
+            NtunhsCourseHubFns.persistent.setCourseCardColor(colorName);
+            let oldColorName = NtunhsCourseHubFns.getCourseCardColor(calendarCourseCardUid).name;
+            let oldColor = NtunhsCourseHubFns.getColorByName(oldColorName);
+            let targetColor = NtunhsCourseHubFns.getColorByName(colorName);
+
+            courseCardItem.classList.remove(oldColor.bg.color);
+            courseCardItem.classList.remove(oldColor.bg.hoverColor);
+            courseCardItem.classList.add(targetColor.bg.color);
+            courseCardItem.classList.add(targetColor.bg.hoverColor);
+
+            this.changeCourseCardCourseNameColor(oldColor, targetColor);
+            this.changeCourseCardTimeColor(oldColor, targetColor);
+        },
+        changeCourseCardCourseNameColor(oldColor, targetColor) {
+            let courseNameElement = courseCardItem.querySelector("p:nth-child(1)");
+            courseNameElement.classList.remove(oldColor.courseText.color);
+            courseNameElement.classList.add(targetColor.courseText.color);
+        },
+        changeCourseCardTimeColor(oldColor, targetColor) {
+            let timeElement = courseCardItem.querySelector("p:nth-child(2)");
+            timeElement.classList.remove(oldColor.timeText.color);
+            timeElement.classList.remove(oldColor.timeText.hoverColor);
+            timeElement.classList.add(targetColor.timeText.color);
+            timeElement.classList.add(targetColor.timeText.hoverColor);
+        }
+    };
 };
 
 window.addEventListener("DOMContentLoaded", (event) => {
