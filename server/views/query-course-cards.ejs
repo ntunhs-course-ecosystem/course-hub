@@ -1,0 +1,4 @@
+<% for( let index = 0; index < courses.length; index++ ) { %>
+    <% let course = courses[index]; %>
+    <%- include('components/query-course-card', { ...course }) %>
+<% } %>
