@@ -1,33 +1,18 @@
 <div class="flex">
-    <%- include('dropdown', { labelText: "學期", panelItems: [
-        {
-            template: "dropdown-panel-button",
-            data: {
-                buttonText: "112下學期",
-                buttonAttrs: [
-                    "@click=alert(\'112下學期\')"
-                ]
-            }
-        },
-        {
-            template: "dropdown-panel-button",
-            data: {
-                buttonText: "112上學期",
-                buttonAttrs: [
-                    "@click=alert(\'112上學期\')"
-                ]
-            }
-        }
-    ] }) %>
+    <%- include('../dropdown', { labelText: "學期", panelItems: [ ] }) %>
+
     <div class="relative w-full">
         <input
             type="search"
             class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-e-lg border-s-gray-50 border-s-2 border border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-green-500"
             placeholder="課程名稱 / 老師名稱"
-            required
+            name="searchInput"
+            form="search-form"
         />
         <button
+            type="submit"
             class="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white bg-green-700 rounded-e-lg border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+            form="search-form"
         >
             <svg
                 class="w-4 h-4"
@@ -45,3 +30,5 @@
         </button>
     </div>
 </div>
+
+

@@ -15,7 +15,7 @@ export default async function (fastify, opts) {
     }, async (request, reply) => {
         return reply.view("components/layout", {
             page: {
-                file: "weekly-calendar.ejs",
+                file: "weekly-calendar/weekly-calendar.ejs",
                 data: {
                     courses: [
                         {

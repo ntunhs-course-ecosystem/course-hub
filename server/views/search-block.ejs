@@ -15,64 +15,67 @@
     "2120-2210"
 ]; %>
 
-<div class="grid grid-cols-6 gap-2 mb-2" id="search-bar">
-    <div class="col-span-5">
-        <%- include('components/search-bar') %>
-    </div>
-    <div class="grid col-span-1 my-auto">
-        <button
-            class="flex justify-end items-center text-gray-600 text-sm"
-            x-data="{ open: false }"
-            @click="document.querySelector('#search-advanced').classList.toggle('hidden'); open=!open;"
-        >
-            <span class="text-nowrap">進階搜尋</span>
-
-            <!-- Heroicon: chevron-down -->
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5 text-gray-400"
-                x-show="!open"
+<form id="search-form" hx-get="course-hub/courses" hx-vals='{}' hx-target="#query-course-cards" hx-select="[id*='query-course-card-wrap']">
+    <div class="grid grid-cols-6 gap-2 mb-2" id="search-bar">
+        <div class="col-span-5">
+            <%- include('components/search-bar-block/search-bar') %>
+        </div>
+        <div class="grid col-span-1 my-auto">
+            <button
+                type="button"
+                class="flex justify-end items-center text-gray-600 text-sm"
+                x-data="{ open: false }"
+                @click="document.querySelector('#search-advanced').classList.toggle('hidden'); open=!open;"
             >
-                <path
-                    fill-rule="evenodd"
-                    d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                    clip-rule="evenodd"
-                />
-            </svg>
+                <span class="text-nowrap">進階搜尋</span>
 
-            <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="w-5 h-5 text-gray-400"
-                x-show="open"
-            >
-                <path
-                    fill-rule="evenodd"
-                    d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
-                    clip-rule="evenodd"
-                />
-            </svg>
-        </button>
+                <!-- Heroicon: chevron-down -->
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="w-5 h-5 text-gray-400"
+                    x-show="!open"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                        clip-rule="evenodd"
+                    />
+                </svg>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                    class="w-5 h-5 text-gray-400"
+                    x-show="open"
+                >
+                    <path
+                        fill-rule="evenodd"
+                        d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
+                        clip-rule="evenodd"
+                    />
+                </svg>
+            </button>
+        </div>
     </div>
-</div>
-<div id="search-advanced" x-data="getSearchAdvancedData()" class="hidden">
-    <div class="border border-gray-200 rounded-lg">
-        <ul>
-            <%- include('components/search-advanced-accordion-item.ejs', {
-                        template: "search-bar-block/period-buttons.ejs",
-                        accordionTitle: "節次",
-                        data: {
-                            times: times
-                        }
-                    }) %>
-            <%- include('components/search-advanced-accordion-item.ejs', {
-                        template: "search-bar-block/day-buttons.ejs",
-                        accordionTitle: "星期",
-                        data: {}
-                    }) %>
-        </ul>
+    <div id="search-advanced" x-data="getSearchAdvancedData()" class="hidden">
+        <div class="border border-gray-200 rounded-lg">
+            <ul>
+                <%- include('components/search-bar-block/search-advanced-accordion-item.ejs', {
+                            template: "period-buttons.ejs",
+                            accordionTitle: "節次",
+                            data: {
+                                times: times
+                            }
+                        }) %>
+                <%- include('components/search-bar-block/search-advanced-accordion-item.ejs', {
+                            template: "day-buttons.ejs",
+                            accordionTitle: "星期",
+                            data: {}
+                        }) %>
+            </ul>
+        </div>
     </div>
-</div>
+</form>
