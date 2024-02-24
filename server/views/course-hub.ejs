@@ -1,74 +1,3 @@
-<% let dummyCourse = [
-    {
-        "semester": "1122",
-        "department": "四年制資訊管理系",
-        "courseType": "專業必修(系所)",
-        "courseFullID": "221401200011A0",
-        "courseName": "JAVA程式語言入門",
-        "courseEngName": "Introduction to JAVA Programming",
-        "departmentID": "22140",
-        "subjectID": "1200",
-        "subjectGroup": "01",
-        "grade": "1",
-        "classGroup": "A0",
-        "credit": "3",
-        "className": "資日四技1年A0班",
-        "classID": "221401A0",
-        "totalOfTakingStudents": "",
-        "numberOfTakingStudents": "48",
-        "weekNumber": "全18週",
-        "multipleTeacherName": "徐建業",
-        "note": "修課限制：本系四技一般生、外系四技一般生、本所（研究生下修，不計入畢業學分）、程式設計課程",
-        "coursePlanRelativeUrl": "",
-        "courseAbstract": "本課程為JAVA程式語言入門課程，主要教學內容包含JAVA指令的語法，I/O的處理、程式邏輯運算、程式流程控制、陣列字串處理、JAVA套件等。另一方面，針對基本物件導向的程式設計，例如繼承、過載、多形等，亦會加以簡單講解並讓學生演練。",
-        "courseEngAbstract": "Object-oriented programming is an important and basic IT skills, the purpose of this course is to teach students have the basic ability to establish a JAVA application and give students the concepts and the benefits of object-oriented programming include the characteristics Inheritance, Overload and Polymorphism. Topics covered include the Java programming language syntax, input and output functions, Array and strings, math functions, collection classes. Students will develop and test Java applications (typically) using Eclipse.",
-        "day": "週一",
-        "mainTeacherName": "徐建業",
-        "dayNum": 1,
-        "courseLocation": "B210",
-        "startPeriod": "8",
-        "endPeriod": "10",
-        "startTime": "15:40",
-        "endTime": "18:30",
-        "courseCardUid": "221401200011A0"
-    },
-    {
-        "courseCardUid": "221400021011A0",
-        "semester": "1122",
-        "department": "四年制資訊管理系",
-        "courseType": "通識必修(通識)",
-        "courseFullID": "221400021011A0",
-        "courseName": "環境教育",
-        "courseEngName": "Environmental Education",
-        "departmentID": "22140",
-        "subjectID": "0021",
-        "subjectGroup": "01",
-        "grade": "1",
-        "classGroup": "A0",
-        "credit": "2",
-        "className": "資日四技1年A0班",
-        "classID": "221401A0",
-        "totalOfTakingStudents": "",
-        "numberOfTakingStudents": "48",
-        "weekNumber": "全18週",
-        "multipleTeacherName": "林育安",
-        "note": "1.第二階段加退選，開放修習「環境教育」課程之學生及重修生互相跨班選課。2. 全部網路選課，無紙本加選。3.因轉學轉系或修習雙聯學位同學如欲提早修課，經中心同意後，請於第二階段開放其選課，名單會於第一階段選課結束後送交教務處。",
-        "coursePlanRelativeUrl": "",
-        "courseAbstract": "本課程旨在闡述環境永續發展的意義與重要性，教學內涵希望提昇學生永續發展的覺知，增加永續發展的概念知識，培養正確的永續發展態度與價值觀，並發展永續發展的行動技能與行動經驗。課程強調在環境中進行教育，學習有關環境的知識、態度、技能，並且為實踐永續環境而準備。環境教育包含六個核心的學習要素：自然資源保育概念、環境管理概念的融入；生態原理、互動與互賴概念的融入；以及融入環境倫理與永續性的概念等。\n    課程內容涵蓋環境概論、環境倫理、環境教育法規、環境變遷與防災、節能減碳與能源管理、與永續發展與生態保育等主題內容。教學策略運用：做中學、在真實的情境中體驗、合作學習法、運用感官學習、探索環境議題等項目。教學方法採取課堂講解、分組討論、專題討論、現地參訪等方式進行，並以多媒體教材教學。期望藉由環境議題的認識與討論，深入環境的內涵；透過對於環境問題的觀察與思考，了解環境永續的本質及善盡環境保護的義務。環境教育是一種教育的過程，在過程中個人認識他們的環境，以及組成環境的生物、物理和文化間的交互作用，得到知識、技能和價值觀，並能個別或集體地了解並解決現在和將來的環境問題。",
-        "courseEngAbstract": "Environmental education is designed to explain the meaning and importance of environment and sustainable development. It refers to organized efforts to teach how natural environments function, and particularly, how human beings can manage behavior and ecosystems to live sustainably. It is a multi-disciplinary field integrating disciplines such as biology, chemistry, physics, ecology, earth science, atmospheric science, mathematics, and geography. The term often implies education within the school system, from primary to post-secondary. However, it sometimes includes all efforts to educate the public and other audiences, including print materials, websites, media campaigns, etc. \n  Environmental education consists of six core elements: the concept of conservation of natural resources, environmental management into ecological principles, into the concept of interaction and interdependence; and the concept of integration of environmental ethics and sustainable environment. Environmental education is the teaching of individuals, and communities, in transitioning to a society that is knowledgeable of the environment and its associated problems, aware of the solutions to these problems, and motivated to solve them.Environmental education is an educational process, in the process of personal awareness in their environment, and form an environment of interaction between biological, physical and cultural, are knowledge, skills, and values, and individually or collectively, can understand and solve current and future environmental problems.",
-        "day": "週四",
-        "mainTeacherName": "林育安",
-        "dayNum": 4,
-        "courseLocation": "G205",
-        "startPeriod": "6",
-        "endPeriod": "7",
-        "startTime": "13:40",
-        "endTime": "15:30"
-    }
-] %>
-
-<% dummyCourse = [...dummyCourse, ...new Array(20).fill(dummyCourse[1])] %>
-
 <div class="overflow-auto h-screen relative">
     <%- include('components/header') %>
     <main class="container relative">
@@ -78,17 +7,16 @@
                 <%- include('search-block') %>
             </div>
             <!-- query course block -->
-            <div class="grid md:grid-cols-4 md:h-[700px] md:max-h-[700px]">
+            <div class="grid md:grid-cols-4">
                 <!-- course cards -->
                 <div class="gird col-span-1">
-                    <div class="rounded-lg shadow p-2 md:max-h-[700px] overflow-y-auto">
-                        <%- include('query-course-cards', { courses: dummyCourse
-                        }) %>
+                    <div class="rounded-lg shadow p-2 md:h-[700px] md:max-h-[700px] overflow-y-auto">
+                        <%- include('query-course-block', { courses: [] }) %>
                     </div>
                 </div>
                 <div class="grid col-span-3 md:max-h-[700px]">
                     <div class="ml-2 rounded-lg shadow p-2 overflow-y-auto">
-                        <%- include('components/weekly-calendar', { courses: dummyCourse.slice(0,2) }) %>
+                        <%- include('components/weekly-calendar/weekly-calendar', { courses: [] }) %>
                     </div>
                 </div>
             </div>

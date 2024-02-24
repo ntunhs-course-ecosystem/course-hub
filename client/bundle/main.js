@@ -46,5 +46,6 @@ window.addEventListener("alpine:init", () => {
 
 // Restart Alpine when the DOM is altered by HTMX.
 document.body.addEventListener("htmx:afterSwap", () => {
-    Alpine.start();
+    // 暫時註解此功能，因為重複啟動 alpine 會導致問題 (e.g. 部分功能無法使用)
+    // Alpine.start();
 });

@@ -3,6 +3,7 @@
     x-data="{ open: false }"
     @open-modal="open=true"
     @close-modal="open=false"
+    hx-preserve
 >
     <div
         @keydown.window.escape="open = false"

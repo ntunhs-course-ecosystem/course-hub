@@ -143,7 +143,8 @@ export class CoursesModel {
         }
     }
 
-    getTable() {
-        return database().table("course");
+    static async getSemesters() {
+        let db = await database();
+        return await db.table("courses").distinct("semester").orderBy("semester", "desc");
     }
 }

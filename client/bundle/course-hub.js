@@ -145,6 +145,35 @@ export const NtunhsCourseHubFns = {
                 detail: {}
             })
         );
+    },
+    searchParameterHandler: {
+        changeSemester (value, text) {
+            let dropdownSemester = document.getElementById("dropdown-semester");
+            dropdownSemester.value=value;
+
+            let semesterLabel = document.getElementById("semester-label");
+            semesterLabel.innerHTML = text;
+
+            this.setParameter("semester", value);
+        },
+        setParameter(key, value) {
+            let searchValue = this.getSearchValue();
+            searchValue[key] = value;
+            this.getSearchForm().setAttribute("hx-vals", JSON.stringify(searchValue));
+        },
+        getParameter(key) {
+            let searchForm = document.querySelector("#search-form");
+            let searchValue = searchForm.getAttribute("hx-vals");
+            searchValue = JSON.parse(searchValue);
+            return searchValue[key];
+        },
+        getSearchValue() {
+            let searchValue = this.getSearchForm().getAttribute("hx-vals");
+            return JSON.parse(searchValue);
+        },
+        getSearchForm() {
+            return document.querySelector("#search-form");
+        }
     }
 };
 

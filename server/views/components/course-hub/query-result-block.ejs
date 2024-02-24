@@ -1,0 +1,23 @@
+<% for( let index = 0; index < courses.length; index++ ) { %>
+<% let course = courses[index]; %>
+
+<% if (index === courses.length - 1) { %>
+<div
+    class="w-full"
+    hx-get="course-hub/courses"
+    hx-trigger="intersect once"
+    hx-target="#query-course-cards"
+    hx-swap="beforeend"
+    hx-select="#query-course-card-wrap"
+    hx-vals="<%= JSON.stringify(query) %>"
+    id="query-course-card-wrap"
+>
+    <%- include('../query-course-card', { ...course }) %>
+</div>
+<% } else { %>
+<div class="w-full" id="query-course-card-wrap">
+    <%- include('../query-course-card', { ...course }) %>
+</div>
+<% } %>
+
+<% } %>

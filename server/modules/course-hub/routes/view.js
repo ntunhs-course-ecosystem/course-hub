@@ -3,7 +3,9 @@ export default async function (fastify, opts) {
         return reply.view("components/layout", {
             page: {
                 file: "../course-hub",
-                data: {}
+                data: {
+                    courses: []
+                }
             }
         });
     });

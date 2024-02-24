@@ -1,3 +1,5 @@
+import { NtunhsCourseHubFns } from "../course-hub";
+
 export const getSearchAdvancedData = function () {
     return {
         periods: [],
@@ -15,6 +17,8 @@ export const getSearchAdvancedData = function () {
                 el.setAttribute("data-state", "active");
                 el.classList.add("bg-green-200");
             }
+
+            NtunhsCourseHubFns.searchParameterHandler.setParameter(field, this[field]);
         },
         /**
          * 
