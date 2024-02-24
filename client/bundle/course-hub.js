@@ -220,3 +220,19 @@ window.addEventListener("DOMContentLoaded", (event) => {
         window.localStorage.setItem("ntunhs-course-hub-card-color", cardColor);
     }
 });
+
+
+window.addEventListener("htmx:afterRequest", ({ target, detail })=> {
+    if (target?.id === "search-form") {
+        let noDataEl = document.getElementById("query-course-block-no-data");
+        if (detail.xhr.status === 204) {
+            let queryCourseCardsEl = document.getElementById("query-course-cards");
+            queryCourseCardsEl.innerHTML = "";
+
+            noDataEl?.classList.remove("hidden");
+        } else {
+            noDataEl?.classList.add("hidden");
+        }
+        console.log(detail.xhr.status);
+    }
+});

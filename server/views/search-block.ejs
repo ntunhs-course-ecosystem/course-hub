@@ -15,7 +15,16 @@
     "2120-2210"
 ]; %>
 
-<form id="search-form" hx-get="course-hub/courses" hx-vals='{}' hx-target="#query-course-cards" hx-select="[id*='query-course-card-wrap']">
+<form 
+    id="search-form" 
+    hx-get="course-hub/courses" 
+    hx-vals='{}' 
+    hx-target="#query-course-cards" 
+    hx-select="[id*='query-course-card-wrap']"
+    hx-indicator=".htmx-indicator"
+    x-data=""
+    @submit="document.getElementById('query-course-block-no-data').classList.add('hidden');"
+>
     <div class="grid grid-cols-6 gap-2 mb-2" id="search-bar">
         <div class="col-span-5">
             <%- include('components/search-bar-block/search-bar') %>
