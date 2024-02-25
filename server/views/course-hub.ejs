@@ -7,15 +7,15 @@
                 <%- include('search-block') %>
             </div>
             <!-- query course block -->
-            <div class="grid md:grid-cols-4">
+            <div class="grid md:grid-cols-4 gird-cols-1 gap-2 md:gap-0">
                 <!-- course cards -->
-                <div class="gird col-span-1">
+                <div class="gird md:col-span-1">
                     <div class="rounded-lg shadow p-2 md:h-[700px] md:max-h-[700px] overflow-y-auto">
                         <%- include('query-course-block', { courses: [] }) %>
                     </div>
                 </div>
-                <div class="grid col-span-3 md:max-h-[700px]">
-                    <div class="ml-2 rounded-lg shadow p-2 overflow-y-auto">
+                <div class="grid md:col-span-3 md:max-h-[700px]">
+                    <div class="md:ml-2 rounded-lg shadow p-2 overflow-y-auto">
                         <%- include('components/weekly-calendar/weekly-calendar', { courses: [] }) %>
                     </div>
                 </div>
