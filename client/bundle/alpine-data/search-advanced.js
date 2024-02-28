@@ -8,7 +8,7 @@ export const getSearchAdvancedData = function () {
             if (this.isActive(el)) {
                 let index = this[field].indexOf(el.getAttribute("data-value"));
                 if (index > -1) {
-                    this.periods.splice(index, 1);
+                    this[field].splice(index, 1);
                     el.setAttribute("data-state", "inactive");
                     el.classList.remove("bg-green-200");
                 }
