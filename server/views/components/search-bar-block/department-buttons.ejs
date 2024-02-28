@@ -1,0 +1,277 @@
+<% const departments = [
+{
+    "department": "四年制高齡健康照護系",
+    "department_id": "13140"
+},
+{
+    "department": "四年制健康事業管理系",
+    "department_id": "21140"
+},
+{
+    "department": "四年制資訊管理系",
+    "department_id": "22140"
+},
+{
+    "department": "四年制運動保健系",
+    "department_id": "32140"
+},
+{
+    "department": "四年制語言治療與聽力學系",
+    "department_id": "25140"
+},
+{
+    "department": "四年制嬰幼兒保育系",
+    "department_id": "31140"
+},
+{
+    "department": "四年制護理系",
+    "department_id": "11140"
+},
+{
+    "department": "二年制進修部護理系(日間班)",
+    "department_id": "11230"
+},
+{
+    "department": "二年制進修部護理系(夜間班)",
+    "department_id": "11330"
+},
+{
+    "department": "國際運動科學外國學生專班",
+    "department_id": "30860"
+},
+{
+    "department": "四年制生死與健康心理諮商系",
+    "department_id": "33140"
+},
+{
+    "department": "生死與健康心理諮商系碩士班生死學組",
+    "department_id": "33161"
+},
+{
+    "department": "生死與健康心理諮商系碩士班諮商心理組",
+    "department_id": "33162"
+},
+{
+    "department": "四年制休閒產業與健康促進系",
+    "department_id": "23140"
+},
+{
+    "department": "休閒產業與健康促進系旅遊健康碩士班",
+    "department_id": "23160"
+},
+{
+    "department": "休閒產業與健康促進系碩士在職專班",
+    "department_id": "23460"
+},
+{
+    "department": "二年制長期照護系",
+    "department_id": "24120"
+},
+{
+    "department": "長期照護系碩士班",
+    "department_id": "24160"
+},
+{
+    "department": "長期照護系學士後多元專長培力課程專班",
+    "department_id": "24150"
+},
+{
+    "department": "高齡健康照護系碩士班",
+    "department_id": "13160"
+},
+{
+    "department": "高齡與運動健康暨嬰幼兒保育技優專班",
+    "department_id": "41140"
+},
+{
+    "department": "二年制健康事業管理系",
+    "department_id": "21120"
+},
+{
+    "department": "健康事業管理系碩士班",
+    "department_id": "21160"
+},
+{
+    "department": "健康事業管理系碩士在職專班",
+    "department_id": "21460"
+},
+{
+    "department": "二年制進修部健康事業管理系",
+    "department_id": "21330"
+},
+{
+    "department": "健康科技學院碩士班",
+    "department_id": "20160"
+},
+{
+    "department": "國際健康科技碩士學位學程國際生碩士班",
+    "department_id": "26860"
+},
+{
+    "department": "智慧健康科技技優專班",
+    "department_id": "42140"
+},
+{
+    "department": "資訊管理系碩士班",
+    "department_id": "22160"
+},
+{
+    "department": "運動保健系碩士班",
+    "department_id": "32160"
+},
+{
+    "department": "運動保健系碩士在職專班",
+    "department_id": "32460"
+},
+{
+    "department": "語言治療與聽力學系碩士班語言治療組",
+    "department_id": "25161"
+},
+{
+    "department": "語言治療與聽力學系碩士班聽力組",
+    "department_id": "25162"
+},
+{
+    "department": "二年制嬰幼兒保育系",
+    "department_id": "31120"
+},
+{
+    "department": "嬰幼兒保育系碩士班",
+    "department_id": "31160"
+},
+{
+    "department": "嬰幼兒保育系學士後教保學位學程",
+    "department_id": "31180"
+},
+{
+    "department": "國際蒙特梭利碩士專班",
+    "department_id": "31860"
+},
+{
+    "department": "二年制醫護教育暨數位學習系",
+    "department_id": "1D120"
+},
+{
+    "department": "醫護教育暨數位學習系碩士班",
+    "department_id": "1D160"
+},
+{
+    "department": "二年制護理助產及婦女健康系",
+    "department_id": "1C120"
+},
+{
+    "department": "護理助產及婦女健康系護理助產碩士班",
+    "department_id": "1C160"
+},
+{
+    "department": "國際護理助產碩士班",
+    "department_id": "1C860"
+},
+{
+    "department": "二年制進修部護理助產及婦女健康系",
+    "department_id": "1C330"
+},
+{
+    "department": "護理系中西醫結合護理碩士班",
+    "department_id": "11169"
+},
+{
+    "department": "二年制護理系",
+    "department_id": "11120"
+},
+{
+    "department": "護理系博士班",
+    "department_id": "11170"
+},
+{
+    "department": "護理系碩士班護研老人組",
+    "department_id": "11162"
+},
+{
+    "department": "護理系碩士班護研成人專科組",
+    "department_id": "11168"
+},
+{
+    "department": "護理系碩士班護研兒童組",
+    "department_id": "11166"
+},
+{
+    "department": "護理系碩士班護研精神組",
+    "department_id": "11164"
+},
+{
+    "department": "護理系碩士班護研婦女組",
+    "department_id": "11163"
+},
+{
+    "department": "護理系碩士班護研成人組",
+    "department_id": "11161"
+},
+{
+    "department": "護理系碩士班護研社區組",
+    "department_id": "11165"
+},
+{
+    "department": "護理系碩士班護研資訊組",
+    "department_id": "11167"
+},
+{
+    "department": "護理系學士後學士班(學士後護理系)",
+    "department_id": "11190"
+},
+{
+    "department": "國際護理博士班",
+    "department_id": "11870"
+},
+{
+    "department": "國際護理碩士班",
+    "department_id": "11860"
+},
+{
+    "department": "護理系碩士在職專班護專成人組",
+    "department_id": "11461"
+},
+{
+    "department": "護理系碩士在職專班護專社區組",
+    "department_id": "11465"
+},
+{
+    "department": "護理系碩士在職專班護專婦女組",
+    "department_id": "11463"
+},
+{
+    "department": "護理系碩士在職專班護專資訊組",
+    "department_id": "11467"
+},
+{
+    "department": "護理系碩士在職專班護專兒童組",
+    "department_id": "11466"
+},
+{
+    "department": "護理系碩士在職專班護專精神組",
+    "department_id": "11464"
+},
+{
+    "department": "護理系碩士在職專班護專成人專科組",
+    "department_id": "11468"
+},
+{
+    "department": "護理系碩士在職專班護專老人組",
+    "department_id": "11462"
+}
+] %>
+
+<div class="grid grid-cols-3 gap-2 p-4" x-data='{"searchValue": ""}'>
+    <input type="text" class="rounded p-2.5 col-span-3 text-sm text-gray-900 bg-gray-50 border-gray-300 focus:ring-green-500 focus:border-green-500 dark:bg-gray-700 dark:border-s-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-green-500" x-model="searchValue">
+    <% for( let index = 0; index < departments.length; index++ ) { %>
+    <button
+        class="rounded-xl border p-2"
+        type="button"
+        data-value="<%= departments[index].department_id %>"
+        @click="addSearchValueFromElement($el, 'departments')"
+        x-show="$el.innerHTML.includes(searchValue) || !searchValue"
+    >
+        <%= departments[index].department %>
+    </button>
+    <% } %>
+</div>

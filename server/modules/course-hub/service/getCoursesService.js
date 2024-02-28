@@ -13,12 +13,13 @@ export class GetCoursesService {
 
         let query = db.table("courses").select().modify((queryBuilder) => {
             this.addSemesterQuery(queryBuilder),
-            this.addSearchInputQuery(queryBuilder);
+                this.addSearchInputQuery(queryBuilder);
             this.addPeriodQuery(queryBuilder);
             this.addDayQuery(queryBuilder);
+            this.addDepartmentQuery(queryBuilder);
         })
-        .offset((this.page-1)*10)
-        .limit(10);
+            .offset((this.page - 1) * 10)
+            .limit(10);
 
         if (process.env.NODE_ENV === "development") {
             console.log(query.clone().toSQL().toNative());
@@ -43,42 +44,49 @@ export class GetCoursesService {
      * @param {import("knex").Knex.QueryBuilder} queryBuilder 
      */
     addSearchInputQuery(queryBuilder) {
-        if ("searchInput" in this.request.query) {
+        if (this.request.query?.searchInput) {
             queryBuilder.andWhere(searchInputQueryBuilder => {
                 searchInputQueryBuilder.whereLike("course_name", `%${this.request.query.searchInput}%`)
-                .orWhereLike("course_eng_name", `%${this.request.query.searchInput}%`)
-                .orWhereLike("multiple_teacher_name", `%${this.request.query.searchInput}%`);
+                    .orWhereLike("course_eng_name", `%${this.request.query.searchInput}%`)
+                    .orWhereLike("multiple_teacher_name", `%${this.request.query.searchInput}%`);
             });
         }
     }
 
     addPeriodQuery(queryBuilder) {
         if ("periods" in this.request.query) {
-            queryBuilder.andWhere((periodQueryBuilder)=> {
+            queryBuilder.andWhere((periodQueryBuilder) => {
                 if (Array.isArray(this.request.query.periods)) {
-                    this.request.query.periods.map(p =>
-                        {
-                            periodQueryBuilder.orWhere(multiPeriodQueryBuilder => 
-                                multiPeriodQueryBuilder.andWhere("start_period", "<=", p)
+                    this.request.query.periods.map(p => {
+                        periodQueryBuilder.orWhere(multiPeriodQueryBuilder =>
+                            multiPeriodQueryBuilder.andWhere("start_period", "<=", p)
                                 .andWhere("end_period", ">=", p)
-                            );
-                        }
+                        );
+                    }
                     );
                 } else {
                     periodQueryBuilder.where("start_period", "<=", this.request.query.periods)
-                    .andWhere("end_period", ">=", this.request.query.periods);
+                        .andWhere("end_period", ">=", this.request.query.periods);
                 }
             });
         }
     }
 
     addDayQuery(queryBuilder) {
-        if ("days" in this.request.query) {
-            queryBuilder.andWhere((dayQueryBuilder)=> {
-                if (Array.isArray(this.request.query.days)) {
-                    dayQueryBuilder.whereIn("day_num", this.request.query.days);
+        this.addAndWhereExactMatchFor("day_num", "days", queryBuilder);
+    }
+
+    addDepartmentQuery(queryBuilder) {
+        this.addAndWhereExactMatchFor("department_id", "departments", queryBuilder);
+    }
+
+    addAndWhereExactMatchFor(field, requestField, queryBuilder) {
+        if (requestField in this.request.query) {
+            queryBuilder.andWhere((fieldQueryBuilder) => {
+                if (Array.isArray(this.request.query[requestField])) {
+                    fieldQueryBuilder.whereIn(field, this.request.query[requestField]);
                 } else {
-                    dayQueryBuilder.where("day_num", this.request.query.days);
+                    fieldQueryBuilder.where(field, this.request.query[requestField]);
                 }
             });
         }

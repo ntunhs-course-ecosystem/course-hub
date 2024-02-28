@@ -4,6 +4,7 @@ export const getSearchAdvancedData = function () {
     return {
         periods: [],
         days: [],
+        departments: [],
         addSearchValueFromElement: function (el, field) {
             if (this.isActive(el)) {
                 let index = this[field].indexOf(el.getAttribute("data-value"));

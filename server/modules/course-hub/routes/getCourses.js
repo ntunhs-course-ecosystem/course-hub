@@ -45,6 +45,19 @@ export default async function (fastify, opts) {
                                 }
                             }
                         ]
+                    },
+                    departments: {
+                        anyOf: [
+                            {
+                                type: "string"
+                            },
+                            {
+                                type: "array",
+                                items: {
+                                    type: "string"
+                                }
+                            }
+                        ]
                     }
                 }
             }
