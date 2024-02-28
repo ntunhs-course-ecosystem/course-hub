@@ -193,8 +193,7 @@
                 >
                     <template x-for="course in $store.preCourses.data">
                         <li
-                            x-id="['calendar-course-card']"
-                            x-data="getCalendarCrouseCardData($id('calendar-course-card'))"
+                            x-data="getCalendarCrouseCardData(course.courseFullID)"
                             :class="getLiClass(course)"
                             :style="getLiStyle(course.startPeriod, course.endPeriod)"
                         >
