@@ -1,11 +1,15 @@
+<div id="modal-block" hx-swap-oob="beforeend">
+    <%- include('course-detail-modal') %>
+</div>
 <div
     class="m-2 cursor-pointer border border-gray-400 rounded-md hover:shadow-md hover:border-opacity-0 transform hover:-translate-y-1 transition-all duration-200 group"
-    x-data=""
+    x-data="getQueryCourseCardData({ courseFullID: '<%= courseFullID %>', dayNum: <%= dayNum %>, startPeriod: '<%= startPeriod %>', endPeriod: '<%= endPeriod %>' })"
     id="query-course-card-<%= courseFullID %>"
 >
     <div class="flex">
         <div
             class="p-3 flex flex-wrap flex-col flex-grow-[0.8]"
+            :class="getCardClass().course"
             @click="NtunhsCourseHubFns.openCourseDetailModal('course-detail-modal-<%= courseFullID %>')"
         >
             <span class="text-xl mb-2"><%= courseName %></span>
@@ -23,10 +27,13 @@
         </div>
         <button
             class="right-3 px-3 py-1 rounded-md z-30 flex-grow-[0.2]"
-            @click="alert('加入課程')"
+            :class="getCardClass().button"
+            :disabled="isExistInCalendar() || isConflict()"
+            @click="$store.preCourses.addCourse({ courseFullID: '<%= courseFullID %>', courseName: '<%= courseName %>', startPeriod: '<%= startPeriod %>', endPeriod: '<%= endPeriod %>', dayNum: <%= dayNum %>, courseLocation: '<%= courseLocation %>', multipleTeacherName: '<%= multipleTeacherName %>' })"
         >
             <svg
-                class="h-6 w-6 fill-inherit hover:fill-green-500"
+                class="h-6 w-6"
+                :class="getCardClass().addButton"
                 viewBox="0 0 15 15"
                 xmlns="http://www.w3.org/2000/svg"
             >
@@ -38,4 +45,3 @@
     </div>
 </div>
 
-<%- include('course-detail-modal') %>

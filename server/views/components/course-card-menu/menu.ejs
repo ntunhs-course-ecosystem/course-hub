@@ -64,7 +64,12 @@
                         <li>List Item #3</li>
                     </div>
                     <div class="w-full border border-gray-100 my-1"></div>
-                    <li class="!text-red-500">Delete</li>
+                    <li 
+                        class="!text-red-500"
+                        @click="show=false; $store.preCourses.removeCourse(course.courseFullID)"
+                    >
+                        Delete
+                    </li>
                     <li x-text="color.name"></li>
                 </ul>
             </div>

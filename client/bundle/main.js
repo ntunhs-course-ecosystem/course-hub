@@ -3,6 +3,8 @@ import Alpine from "alpinejs";
 import { NtunhsCourseHubFns } from "../bundle/course-hub.js";
 import { getDropdownData } from "./alpine-data/dropdown.js";
 import { getSearchAdvancedData } from "./alpine-data/search-advanced.js";
+import { getCalendarCrouseCardData } from "./alpine-data/calendar-course-card.js";
+import { getQueryCourseCardData } from "./alpine-data/query-course-card.js";
 
 window.Alpine = Alpine;
 
@@ -13,24 +15,9 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 window.addEventListener("alpine:init", () => {
 
-    Alpine.data("getCalendarCrouseCardData", function (courseCardUid) {
-        let defaultColorName = NtunhsCourseHubFns.persistent.getCourseCardColor();
-        
-        return {
-            color_: undefined,
-            get color() {
-                return this.color_ || this.defaultColor();
-            },
-            set color(colorName) {
-                let colorObj = NtunhsCourseHubFns.getColorByName(colorName);
-                this.color_ = colorObj;
+    Alpine.data("getQueryCourseCardData", getQueryCourseCardData);
 
-                NtunhsCourseHubFns.CalendarCourseCardColorHandler(courseCardUid).changeBg(colorName);
-                NtunhsCourseHubFns.persistent.setCourseCardColor(colorName);
-            },
-            defaultColor: () => NtunhsCourseHubFns.getColorByName(defaultColorName)
-        };
-    });
+    Alpine.data("getCalendarCrouseCardData", getCalendarCrouseCardData);
 
     Alpine.data("getCourseCardMenuData", function () {
         return {
@@ -42,6 +29,32 @@ window.addEventListener("alpine:init", () => {
     Alpine.data("getDropdownData", getDropdownData);
 
     Alpine.data("getSearchAdvancedData", getSearchAdvancedData);
+
+    Alpine.store("preCourses", { 
+        data: [],
+        addCourse(course) {
+            if (this.isExist(course.courseFullID)) return;
+            this.data.push(course);
+        },
+        removeCourse(courseFullID) {
+            let courseIndex = this.findIndex(courseFullID);
+            if (this.isExist(courseFullID)) {
+                this.data.splice(courseIndex, 1);
+            }
+        },
+        isExist(courseFullID) {
+            return this.findIndex(courseFullID) > -1;
+        },
+        findIndex(courseFullID) {
+            return this.data.findIndex(v => v.courseFullID === courseFullID);
+        },
+        isConflict(startPeriod, endPeriod, day) {
+            let index = this.data.findIndex(
+                v => v.endPeriod >= startPeriod && v.startPeriod <= endPeriod && parseInt(v.dayNum) === parseInt(day)
+            );
+            return index > -1;
+        }
+    });
 });
 
 // Restart Alpine when the DOM is altered by HTMX.

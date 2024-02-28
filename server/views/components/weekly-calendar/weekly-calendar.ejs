@@ -1,5 +1,5 @@
-<main class="overflow-auto flex flex-col isolate bg-white">
-    <div class="md:max-w-full sm:max-w-none flex flex-none flex-col max-w-full">
+
+    <div class="md:max-w-full sm:max-w-none flex flex-none flex-col max-w-full" x-data="">
         <div
             class="ring-opacity-5 ring-black ring-0 shadow bg-white flex-none top-0 sticky z-30"
         >
@@ -191,19 +191,33 @@
                 <ol
                     class="weekly-courses grid-rows-[1.75rem_repeat(168,_minmax(0px,_1fr))_auto] sm:grid-cols-7 grid row-start-1 col-end-2 col-start-1"
                 >
-                    <% for( let index = 0; index < courses.length; index++ ) { %>
-                        <% let course = courses[index]; %>
-                        <%- include('calendar-course-card', { 
-                                dayNum: course.dayNum,
-                                startPeriod: course.startPeriod,
-                                endPeriod: course.endPeriod, 
-                                courseName: course.courseName, 
-                                uid: course.courseCardUid
-                            }) 
-                        %>
-                    <% } %>
+                    <template x-for="course in $store.preCourses.data">
+                        <li
+                            x-id="['calendar-course-card']"
+                            x-data="getCalendarCrouseCardData($id('calendar-course-card'))"
+                            :class="getLiClass(course)"
+                            :style="getLiStyle(course.startPeriod, course.endPeriod)"
+                        >
+                            <div class="absolute top-1 right-1 z-50">
+                                <%- include("../course-card-menu/menu.ejs") %> 
+                            </div>
+                            <a 
+                                href="#"
+                                class="leading-5 text-sm p-2 rounded-lg overflow-y-auto sm:flex flex-col absolute inset-1 group"
+                                :class="color.bg.color + ' ' +color.bg.hoverColor"
+                                @click="NtunhsCourseHubFns.openCourseDetailModal(`course-detail-modal-${course.courseFullID}`)"
+                            >
+                                <p class="font-bold order-1" :class="color.courseText.color" x-text="course.courseName"></p>
+                                <p :class="color.timeText.color">
+                                    <span x-text="getPeriod(course.startPeriod, course.endPeriod)"></span>
+                                </p>
+                                <p class="font-bold order-1" :class="color.courseText.color">
+                                    <span x-text="course.multipleTeacherName + ' • ' + course.courseLocation"></span>
+                                </p>
+                            </a>
+                        </li>
+                    </template>
                 </ol>
             </div>
         </div>
     </div>
-</main>
