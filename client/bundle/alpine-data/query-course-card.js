@@ -6,20 +6,25 @@ export function getQueryCourseCardData(course) {
             if (Alpine.store("preCourses").isExist(course.courseFullID)) {
                 return {
                     "course": "bg-green-50",
-                    "button": "bg-green-50",
-                    "addButton": "hidden"
+                    "addButton": "bg-green-50",
+                    "addButtonIcon": "hidden",
+                    "removeButton": "bg-green-50",
+                    "removeButtonIcon": "fill-inherit hover:fill-red-500"
                 };
             } else if (Alpine.store("preCourses").isConflict(course.startPeriod, course.endPeriod, course.dayNum)) {
                 return {
                     "course": "bg-red-50",
-                    "button": "bg-red-50",
-                    "addButton": "fill-red-100 hover:fill-red-200"
+                    "addButton": "bg-red-50",
+                    "addButtonIcon": "fill-red-100 hover:fill-red-200",
+                    "removeButtonIcon": ""
                 };
             }
             return {
                 "course": "",
-                "button": "",
-                "addButton": "fill-inherit hover:fill-green-500"
+                "addButton": "",
+                "addButtonIcon": "fill-inherit hover:fill-green-500",
+                "removeButton": "hidden",
+                "removeButtonIcon": ""
             };
         },
         isExistInCalendar() {
