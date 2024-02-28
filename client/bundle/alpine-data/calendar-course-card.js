@@ -80,7 +80,7 @@ export function getCalendarCrouseCardData(courseCardUid) {
             return `${periodTimeMapping[startPeriod].start}-${periodTimeMapping[endPeriod].end}`;
         },
         getLiClass(course) {
-            return `sm:col-start-${course.dayNum} flex mt-[1px] relative calendar-course-card-${courseCardUid}`;
+            return `sm:col-start-${course.dayNum} flex mt-[1px] relative calendar-course-card-${course.courseFullID}`;
         },
         getLiStyle(startPeriod, endPeriod) {
             let periodLength = parseInt(endPeriod) - parseInt(startPeriod);
