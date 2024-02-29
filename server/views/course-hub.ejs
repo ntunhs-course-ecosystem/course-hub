@@ -11,7 +11,7 @@
                 <!-- course cards -->
                 <div class="gird md:col-span-1">
                     <div class="rounded-lg shadow p-2 md:h-[700px] md:max-h-[700px] overflow-y-auto">
-                        <%- include('query-course-block', { courses: [] }) %>
+                        <%- include('components/course-hub/query-result-block', { courses: [], target: "" }) %>
                     </div>
                 </div>
                 <div class="grid md:col-span-3 md:max-h-[700px]">
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div id="modal-block">
-            
+            <%- include('components/weekly-calendar/specific-period-modal.ejs') %>
         </div>
     </main>
 </div>

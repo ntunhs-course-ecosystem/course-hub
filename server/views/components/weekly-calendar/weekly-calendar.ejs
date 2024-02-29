@@ -1,225 +1,269 @@
-
-    <div class="md:max-w-full sm:max-w-none flex flex-none flex-col max-w-full" x-data="">
+<div
+    class="md:max-w-full sm:max-w-none flex flex-none flex-col max-w-full"
+    x-data=""
+>
+    <div
+        class="ring-opacity-5 ring-black ring-0 shadow bg-white flex-none top-0 sticky z-30"
+    >
         <div
-            class="ring-opacity-5 ring-black ring-0 shadow bg-white flex-none top-0 sticky z-30"
+            class="grid grid-cols-7 sm:hidden text-gray-500 leading-6 text-sm weekly-calendar-mobile-days"
         >
-            <div
-                class="grid grid-cols-7 sm:hidden text-gray-500 leading-6 text-sm weekly-calendar-mobile-days"
-            >
-                <button class="pt-2 pb-3 items-center flex-col flex">一</button>
-                <button class="pt-2 pb-3 items-center flex-col flex">二</button>
-                <button class="pt-2 pb-3 items-center flex-col flex">三</button>
-                <button class="pt-2 pb-3 items-center flex-col flex">四</button>
-                <button class="pt-2 pb-3 items-center flex-col flex">五</button>
-                <button class="pt-2 pb-3 items-center flex-col flex">六</button>
-                <button class="pt-2 pb-3 items-center flex-col flex">日</button>
-            </div>
-            <div
-                class="mr-[-1px] hidden grid-cols-7 divide-x border-gray-100 border-r-[1px] sm:grid text-gray-500 leading-6 weekly-calendar-days"
-            >
-                <div class="w-14 col-end-1"></div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>一</span>
-                </div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>二</span>
-                </div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>三</span>
-                </div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>四</span>
-                </div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>五</span>
-                </div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>六</span>
-                </div>
-                <div
-                    class="divide-x border-gray-100 py-3 justify-center items-center flex"
-                >
-                    <span>日</span>
-                </div>
-            </div>
+            <button class="pt-2 pb-3 items-center flex-col flex">一</button>
+            <button class="pt-2 pb-3 items-center flex-col flex">二</button>
+            <button class="pt-2 pb-3 items-center flex-col flex">三</button>
+            <button class="pt-2 pb-3 items-center flex-col flex">四</button>
+            <button class="pt-2 pb-3 items-center flex-col flex">五</button>
+            <button class="pt-2 pb-3 items-center flex-col flex">六</button>
+            <button class="pt-2 pb-3 items-center flex-col flex">日</button>
         </div>
-        <div class="flex-auto flex">
+        <div
+            class="mr-[-1px] hidden grid-cols-7 divide-x border-gray-100 border-r-[1px] sm:grid text-gray-500 leading-6 weekly-calendar-days"
+        >
+            <div class="w-14 col-end-1"></div>
             <div
-                class="ring-gray-100 ring-1 bg-white flex-none w-14 z-10 left-0 sticky"
-            ></div>
-            <div class="grid grid-cols-1 grid-rows-1 flex-auto">
-                <div
-                    class="grid grid-rows-[repeat(28,_minmax(3.5rem,_1fr))] row-start-1 col-start-1 col-end-2 weekly-calendar-rows-divide"
-                >
-                    <div class="h-7 row-end-1"></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            1
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            2
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            3
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            4
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            5
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            6
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            7
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            8
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            9
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            10
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            11
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            12
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            13
-                        </div>
-                    </div>
-                    <div></div>
-                    <div>
-                        <div
-                            class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
-                        >
-                            14
-                        </div>
-                    </div>
-                    <div></div>
-                </div>
-                <div
-                    class="sm:grid sm:grid-cols-7 grid-rows-1 grid-cols-7 col-start-1 col-end-2 row-start-1 hidden weekly-calendar-cols-divide"
-                >
-                    <div class="row-span-full col-start-1"></div>
-                    <div class="row-span-full col-start-2"></div>
-                    <div class="row-span-full col-start-3"></div>
-                    <div class="row-span-full col-start-4"></div>
-                    <div class="row-span-full col-start-5"></div>
-                    <div class="row-span-full col-start-6"></div>
-                    <div class="row-span-full col-start-7"></div>
-                </div>
-                <ol
-                    class="weekly-courses grid-rows-[1.75rem_repeat(168,_minmax(0px,_1fr))_auto] sm:grid-cols-7 grid row-start-1 col-end-2 col-start-1"
-                >
-                    <template x-for="course in $store.preCourses.data">
-                        <li
-                            x-data="getCalendarCrouseCardData(course.courseFullID)"
-                            :class="getLiClass(course)"
-                            :style="getLiStyle(course.startPeriod, course.endPeriod)"
-                        >
-                            <div class="absolute top-1 right-1 z-10">
-                                <%- include("../course-card-menu/menu.ejs") %> 
-                            </div>
-                            <a 
-                                href="#"
-                                class="leading-5 text-sm p-2 rounded-lg overflow-y-auto sm:flex flex-col absolute inset-1 group"
-                                :class="color.bg.color + ' ' +color.bg.hoverColor"
-                                @click="NtunhsCourseHubFns.openCourseDetailModal(`course-detail-modal-${course.courseFullID}`)"
-                                :data-day="course.dayNum"
-                                :data-start-period="course.startPeriod"
-                                :data-end-period="course.endPeriod"
-                            >
-                                <p class="font-bold order-1" :class="color.courseText.color" x-text="course.courseName"></p>
-                                <p :class="color.timeText.color">
-                                    <span x-text="getPeriod(course.startPeriod, course.endPeriod)"></span>
-                                </p>
-                                <p class="font-bold order-1" :class="color.courseText.color">
-                                    <span x-text="course.multipleTeacherName + ' • ' + course.courseLocation"></span>
-                                </p>
-                            </a>
-                        </li>
-                    </template>
-                </ol>
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>一</span>
+            </div>
+            <div
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>二</span>
+            </div>
+            <div
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>三</span>
+            </div>
+            <div
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>四</span>
+            </div>
+            <div
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>五</span>
+            </div>
+            <div
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>六</span>
+            </div>
+            <div
+                class="divide-x border-gray-100 py-3 justify-center items-center flex"
+            >
+                <span>日</span>
             </div>
         </div>
     </div>
+    <div class="flex-auto flex">
+        <div
+            class="ring-gray-100 ring-1 bg-white flex-none w-14 z-10 left-0 sticky"
+        ></div>
+        <div class="grid grid-cols-1 grid-rows-1 flex-auto">
+            <div
+                class="grid grid-rows-[repeat(14,_minmax(7rem,_1fr))] row-start-1 col-start-1 col-end-2 weekly-calendar-rows-divide"
+            >
+                <div class="h-7 row-end-1"></div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        1
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        2
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        3
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        4
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        5
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        6
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        7
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        8
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        9
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        10
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        11
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        12
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        13
+                    </div>
+                </div>
+                <div>
+                    <div
+                        class="leading-5 text-xs text-right pr-2 w-14 mt-[-0.625rem] ml-[-3.5rem] z-20 left-0 sticky text-gray-400"
+                    >
+                        14
+                    </div>
+                </div>
+            </div>
+            <div
+                class="sm:grid sm:grid-cols-7 grid-rows-1 grid-cols-7 col-start-1 col-end-2 row-start-1 hidden weekly-calendar-cols-divide"
+            >
+                <div class="row-span-full col-start-1"></div>
+                <div class="row-span-full col-start-2"></div>
+                <div class="row-span-full col-start-3"></div>
+                <div class="row-span-full col-start-4"></div>
+                <div class="row-span-full col-start-5"></div>
+                <div class="row-span-full col-start-6"></div>
+                <div class="row-span-full col-start-7"></div>
+            </div>
+            <ol
+                class="weekly-courses grid-rows-[1.75rem_repeat(168,_minmax(0px,_1fr))_auto] sm:grid-cols-7 grid row-start-1 col-end-2 col-start-1"
+            >
+                <template x-for="course in $store.preCourses.data">
+                    <li
+                        x-data="getCalendarCrouseCardData(course.courseFullID)"
+                        :class="getLiClass(course)"
+                        :style="getLiStyle(course.startPeriod, course.endPeriod)"
+                    >
+                        <div class="absolute top-1 right-1 z-10">
+                            <%- include("../course-card-menu/menu.ejs") %>
+                        </div>
+                        <a
+                            href="#"
+                            class="leading-5 text-sm p-2 rounded-lg overflow-y-auto sm:flex flex-col absolute inset-1 group"
+                            :class="color.bg.color + ' ' +color.bg.hoverColor"
+                            @click="NtunhsCourseHubFns.openCourseDetailModal(`course-detail-modal-${course.courseFullID}`)"
+                            :data-day="course.dayNum"
+                            :data-start-period="course.startPeriod"
+                            :data-end-period="course.endPeriod"
+                        >
+                            <p
+                                class="font-bold order-1"
+                                :class="color.courseText.color"
+                                x-text="course.courseName"
+                            ></p>
+                            <p :class="color.timeText.color">
+                                <span
+                                    x-text="getPeriod(course.startPeriod, course.endPeriod)"
+                                ></span>
+                            </p>
+                            <p
+                                class="font-bold order-1"
+                                :class="color.courseText.color"
+                            >
+                                <span
+                                    x-text="course.multipleTeacherName + ' • ' + course.courseLocation"
+                                ></span>
+                            </p>
+                        </a>
+                    </li>
+                </template>
+                <template x-for="day in [1,2,3,4,5,6,7]">
+                    <template
+                        x-for="period in [...Array(14).keys().map(v=>v+1)]"
+                    >
+                        <li
+                            id="specific-period-add-card"
+                            class="flex mt-[1px] relative"
+                            :class='"sm:col-start-"+day'
+                            :style="'grid-row: '+((period-1)*12+2)+' / span 12'"
+                            :data-start-period="period"
+                            :data-day="day"
+                        >
+                            <button
+                                class="flex w-full h-full items-center justify-center"
+                                x-data="{isHover: false}"
+                                @mouseover="isHover = true"
+                                @mouseleave="isHover = false"
+                                @click="$store.preCourses.specific.period=String(period);$store.preCourses.specific.dayNum=day;NtunhsCourseHubFns.openModalById('specific-period-modal')"
+                            >
+                                <span
+                                    x-show="isHover"
+                                    x-transition:enter="transition ease-in duration-300"
+                                    x-transition:enter-start="opacity-0 scale-90"
+                                    x-transition:enter-end="opacity-100 scale-100"
+                                    x-transition:leave="transition ease-out duration-300"
+                                    x-transition:leave-start="opacity-100 scale-100"
+                                    x-transition:leave-end="opacity-0 scale-90"
+                                >
+                                    <svg
+                                        class="fill-inherit w-12 h-12"
+                                        viewBox="0 0 15 15"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <path
+                                            d="M8 2.75C8 2.47386 7.77614 2.25 7.5 2.25C7.22386 2.25 7 2.47386 7 2.75V7H2.75C2.47386 7 2.25 7.22386 2.25 7.5C2.25 7.77614 2.47386 8 2.75 8H7V12.25C7 12.5261 7.22386 12.75 7.5 12.75C7.77614 12.75 8 12.5261 8 12.25V8H12.25C12.5261 8 12.75 7.77614 12.75 7.5C12.75 7.22386 12.5261 7 12.25 7H8V2.75Z"
+                                            fill="currentColor"
+                                            fill-rule="evenodd"
+                                            clip-rule="evenodd"
+                                        ></path>
+                                    </svg>
+                                </span>
+                            </button>
+                        </li>
+                    </template>
+                </template>
+            </ol>
+        </div>
+    </div>
+</div>

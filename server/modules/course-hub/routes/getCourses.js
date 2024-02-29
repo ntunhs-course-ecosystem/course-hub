@@ -71,6 +71,8 @@ export default async function (fastify, opts) {
         let getCoursesService = new GetCoursesService(request, reply);
         let courses = await getCoursesService.getCourses();
         if (courses.length === 0 ) return reply.status(204).send();
-        return reply.view("components/course-hub/query-result-block.ejs", { courses, query: request.query });
+        if (request.query?.specific) 
+            return reply.view("components/course-hub/query-result-block.ejs", { courses, query: request.query, target: '.specific-period-course-modal-body #query-course-cards' });
+        return reply.view("components/course-hub/query-result-block.ejs", { courses, query: request.query, target: '' });
     });
 }

@@ -32,13 +32,26 @@ window.addEventListener("alpine:init", () => {
 
     Alpine.store("preCourses", { 
         data: [],
+        specific: {
+            period: 0,
+            dayNum: 0
+        },
         addCourse(course) {
             if (this.isExist(course.courseFullID)) return;
             this.data.push(course);
+            for(let i = parseInt(course.startPeriod); i <= parseInt(course.endPeriod); i++){
+                let specificPeriodCard = document.querySelector(`li[data-start-period="${i}"][data-day="${course.dayNum}"]`);
+                specificPeriodCard.classList.add("hidden");
+            }
         },
         removeCourse(courseFullID) {
             let courseIndex = this.findIndex(courseFullID);
             if (this.isExist(courseFullID)) {
+                let course = this.data[courseIndex];
+                for(let i = parseInt(course.startPeriod); i <= parseInt(course.endPeriod); i++){
+                    let specificPeriodCard = document.querySelector(`li[data-start-period="${i}"][data-day="${course.dayNum}"]`);
+                    specificPeriodCard.classList.remove("hidden");
+                }
                 this.data.splice(courseIndex, 1);
             }
         },

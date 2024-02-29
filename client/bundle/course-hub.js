@@ -146,6 +146,14 @@ export const NtunhsCourseHubFns = {
             })
         );
     },
+    openModalById: (id) => {
+        let modalEl = document.getElementById(id);
+        modalEl.dispatchEvent(
+            new CustomEvent("open-modal", {
+                detail: {}
+            })
+        );
+    },
     searchParameterHandler: {
         changeSemester (value, text) {
             let dropdownSemester = document.getElementById("dropdown-semester");
@@ -174,6 +182,11 @@ export const NtunhsCourseHubFns = {
         getSearchForm() {
             return document.querySelector("#search-form");
         }
+    },
+    chineseDayMapping: Object.freeze(["", "一", "二", "三", "四", "五", "六", "日"]),
+    isAnyDetailModalOpen() {
+        let openedDetailModal = document.querySelector(`[id*='course-detail-modal'][data-state-open="true"]`);
+        return openedDetailModal;
     }
 };
 
