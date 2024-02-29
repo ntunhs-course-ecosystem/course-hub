@@ -111,7 +111,7 @@ export class CoursesModel {
 
     static async insertOrUpdateCourse(course) {
         let coursePojo = CourseSqlDeserializer.deserialize(course);
-        let { count } = CoursesModel.getCountByCourseFullID(coursePojo.courseFullID);
+        let { count } = await CoursesModel.getCountByCourseFullID(coursePojo.courseFullID);
         if (count === 0) {
             await CoursesModel.insertCourse(course);
             console.log(`insert course: id = ${coursePojo.courseFullID}, course name = ${coursePojo.courseName}`);
