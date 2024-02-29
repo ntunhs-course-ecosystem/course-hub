@@ -1,3 +1,4 @@
 import updateCourse from "./index.js";
 
-updateCourse(false).then(process.exit(0));
+await updateCourse(false);
+process.exit(0);
