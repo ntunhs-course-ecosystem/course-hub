@@ -83,7 +83,7 @@ export function getCalendarCrouseCardData(courseCardUid) {
             return `sm:col-start-${course.dayNum} flex mt-[1px] relative calendar-course-card-${course.courseFullID}`;
         },
         getLiStyle(startPeriod, endPeriod) {
-            let periodLength = parseInt(endPeriod) - parseInt(startPeriod);
+            let periodLength = (parseInt(endPeriod) - parseInt(startPeriod)) + 1;
             let rowStart = (parseInt(startPeriod)-1) * 12 + 2;
             return `grid-row: ${rowStart} / span ${periodLength * 12}`;
         }
