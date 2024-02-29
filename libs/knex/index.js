@@ -61,8 +61,8 @@ async function createCourseTable(db) {
         table.string("main_teacher_name");
         table.integer("day_num");
         table.string("course_location");
-        table.string("start_period");
-        table.string("end_period");
+        table.integer("start_period");
+        table.integer("end_period");
         table.string("start_time");
         table.string("end_time");
     });

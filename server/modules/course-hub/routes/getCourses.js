@@ -23,12 +23,12 @@ export default async function (fastify, opts) {
                     periods: {
                         anyOf: [
                             {
-                                type: "string"
+                                type: "number"
                             },
                             {
                                 type: "array",
                                 items: {
-                                    type: "string"
+                                    type: "number"
                                 }
                             }
                         ]
